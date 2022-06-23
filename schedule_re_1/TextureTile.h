@@ -7,7 +7,7 @@ private:
 	std::vector <sf::VideoMode> fullscreen_mode;
 	int width;
 	int height;
-
+	sf::Vector2i position;
 public:
 	//bool write_changes();
 	//bool save_changes();
@@ -15,11 +15,10 @@ public:
 	const std::string* get_NameDB() const {
 		return dataBase;
 	}
-	bool set_NameDB(std::string & file_0, std::string& file_1, std::string& file_2) {
+	void set_NameDB(std::string & file_0, std::string& file_1, std::string& file_2) {
 		dataBase[0] = file_0;
 		dataBase[1] = file_1;
 		dataBase[2] = file_2;
-		return true;
 	}
 
 	
@@ -36,14 +35,13 @@ public:
 	~TextureTile() {}
 
 
-	bool load() {
+	void load() {
 	
 		m_rectangle.setPosition(0, 0);
 		m_rectangle_.setOutlineThickness(-1);
 		m_rectangle_.setOutlineColor(sf::Color::Green);
 		m_rectangle_.setSize(tileSize);
 		m_rectangle_.setFillColor(sf::Color::Color(0, 0, 0, 255));
-		return 1;
 	}
 	void up() {
 		m_rectangle.move(0, -32);
@@ -56,6 +54,9 @@ public:
 	}
 	void right() {
 		m_rectangle.move(32, 0);
+	}
+	void highlight() {
+		position = sf::Mouse::getPosition();//Development has been stopped in order to learn multithreaded programming.
 	}
 private:
 	sf::RectangleShape::Transformable m_rectangle;
