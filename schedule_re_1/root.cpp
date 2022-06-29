@@ -11,7 +11,6 @@ int main() {
 	int height = fullscreen_mode[0].height;
 
 	sf::RenderWindow window(fullscreen_mode[0], "GunGame", style);
-
 	while (window.isOpen()) {
 		sf::Event event;
 		while (window.pollEvent(event)) {
@@ -35,7 +34,9 @@ int main() {
 				case sf::Keyboard::D:
 					edit.right();
 					break;
-
+				case sf::Keyboard::M:
+					edit.updating_the_mouse_position();
+					break;
 				default:
 					break;
 				}

@@ -3,5 +3,6 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <thread>
 #include <SFML/Graphics.hpp>
 #include "TextureTile.h"

@@ -1,4 +1,4 @@
-#pragma once
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 #pragma once
 class TextureTile: public sf::Drawable, public sf::Transformable
 {
 private:
@@ -28,8 +28,8 @@ public:
 		dataBase[1] = "db_change.txt";
 		dataBase[0] = "db_save_last_version.txt";
 		tileSize = sf::Vector2f(32, 32);
-		width = fullscreen_mode[0].width;
-		height = fullscreen_mode[0].height;
+		width = int(fullscreen_mode[0].width/32)*32;
+		height = int(fullscreen_mode[0].height/32)*32;
 		load();
 	}
 	~TextureTile() {}
@@ -37,26 +37,40 @@ public:
 
 	void load() {
 	
-		m_rectangle.setPosition(0, 0);
+		m_rectangle_.setPosition(0, 0);
 		m_rectangle_.setOutlineThickness(-1);
 		m_rectangle_.setOutlineColor(sf::Color::Green);
 		m_rectangle_.setSize(tileSize);
 		m_rectangle_.setFillColor(sf::Color::Color(0, 0, 0, 255));
 	}
 	void up() {
-		m_rectangle.move(0, -32);
+		if (m_rectangle_.getPosition().y > 0) {
+			m_rectangle_.move(0, -32);
+		}
 	}
 	void down() {
-		m_rectangle.move(0, 32);
+		if (m_rectangle_.getPosition().y < height) {
+			m_rectangle_.move(0, 32);
+		}
 	}
 	void left() {
-		m_rectangle.move(-32, 0);
+		if (m_rectangle_.getPosition().x > 0) {
+			m_rectangle_.move(-32, 0);
+		}
 	}
 	void right() {
-		m_rectangle.move(32, 0);
+		if (m_rectangle_.getPosition().x < width-32) {
+			m_rectangle_.move(32, 0);
+		}
 	}
-	void highlight() {
-		position = sf::Mouse::getPosition();//Development has been stopped in order to learn multithreaded programming.
+	void h() {
+		//position = sf::Mouse::getPosition();//Development has been stopped in order to learn multithreaded programming.
+	}
+	void updating_the_mouse_position() {
+		position = sf::Mouse::getPosition();
+		std::cout << position.x << std::endl << position.y << std::endl;
+		m_rectangle.setPosition(0, 0);
+		m_rectangle_.setPosition(int(position.x / 32) * 32, int(position.y / 32) * 32);
 	}
 private:
 	sf::RectangleShape::Transformable m_rectangle;
@@ -67,5 +81,4 @@ private:
 		// You can draw other high-level objects
 		target.draw(m_rectangle_, states);
 	}
-};
-
+};                                                                                                                                                                                                                                                                                               
