@@ -5,4 +5,3 @@
 #include <fstream>
 #include <thread>
 #include <SFML/Graphics.hpp>
-#include "TextureTile.h"
