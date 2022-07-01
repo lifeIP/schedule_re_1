@@ -1,10 +1,10 @@
 
 #pragma once
 
-class TextureTile: public sf::Drawable, public sf::Transformable
+class TextureTile: public sf::Drawable, private sf::Transformable
 {
 private:
-	sf::Vector2i position;
+	sf::Vector2f position;
 	std::string dataBase[3];
 	sf::Vector2f tileSize;
 	std::vector <sf::VideoMode> fullscreen_mode;
@@ -22,7 +22,7 @@ private:
 
 public:
 	//getters and setters+
-	sf::Vector2i& get_position() {
+	sf::Vector2f& get_position() {
 		return position;
 	}
 
@@ -86,8 +86,8 @@ public:
 		}
 	}
 	void updating_the_mouse_position() {
-		position = sf::Mouse::getPosition();
-		std::cout << position.x << std::endl << position.y << std::endl;
+		position.x = sf::Mouse::getPosition().x;
+		position.y = sf::Mouse::getPosition().y;
 		object.setPosition(int(position.x / tileSize.x) * tileSize.x, int(position.y / tileSize.y) * tileSize.y);
 	}
 	//management methods-

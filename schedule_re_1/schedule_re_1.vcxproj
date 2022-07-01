@@ -150,6 +150,7 @@
   <ItemGroup>
     <ClInclude Include="lib.h" />
     <ClInclude Include="object.h" />
+    <ClInclude Include="SelectArea.h" />
     <ClInclude Include="TextureTile.h" />
   </ItemGroup>
   <ItemGroup>

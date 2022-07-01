@@ -3,10 +3,11 @@
 
 
 int main() {
+	bool a = true;
 	sf::Uint32 style = sf::Style::Fullscreen;// setting the window style
 	std::vector <sf::VideoMode> fullscreen_mode = sf::VideoMode::getFullscreenModes();
 	TextureTile edit;
-
+	SelectArea f(&edit);
 	//these variables show the screen size in pixels.
 	int width = fullscreen_mode[0].width;
 	int height = fullscreen_mode[0].height;
@@ -37,6 +38,11 @@ int main() {
 					break;
 				case sf::Keyboard::M:
 					edit.updating_the_mouse_position();
+					a = true;
+					break;
+				case sf::Keyboard::N:
+					f.update_selected_area();
+					a = false;
 					break;
 				default:
 					break;
@@ -46,7 +52,12 @@ int main() {
 		}
 		//In this cycle, everything that is displayed on the screen is processed.
 		window.clear(sf::Color::Black);
-		window.draw(edit);
+		if (a) {
+			window.draw(edit);
+		}
+		else {
+			window.draw(f);
+		}
 		window.display();
 	}
 	return 0;
