@@ -19,12 +19,15 @@
     <Filter Include="Файлы заголовков\engine">
       <UniqueIdentifier>{6132c1a7-2fbd-469e-9410-08353e282fc5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\engine\LS_generator">
+      <UniqueIdentifier>{4b290815-6dfa-47b4-aa0e-47c75c56e801}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\texture">
+      <UniqueIdentifier>{76f64c55-993e-4f93-9ff0-2ed11f622f59}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataBase.h">
-      <Filter>Файлы заголовков\map_editor</Filter>
-    </ClInclude>
-    <ClInclude Include="object.h">
       <Filter>Файлы заголовков\map_editor</Filter>
     </ClInclude>
     <ClInclude Include="SelectArea.h">
@@ -33,24 +36,35 @@
     <ClInclude Include="TextureTile.h">
       <Filter>Файлы заголовков\map_editor</Filter>
     </ClInclude>
-    <ClInclude Include="LandscapeGenerator.h">
-      <Filter>Файлы заголовков\engine</Filter>
-    </ClInclude>
     <ClInclude Include="lib.h">
-      <Filter>Файлы заголовков\map_editor</Filter>
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="object.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LandscapeGenerator.h">
+      <Filter>Файлы заголовков\engine\LS_generator</Filter>
+    </ClInclude>
+    <ClInclude Include="RecordChanges.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="tz.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
+    <Text Include="file.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="root.cpp">
-      <Filter>Файлы заголовков\map_editor</Filter>
-    </ClCompile>
-    <ClCompile Include="e_root.cpp">
-      <Filter>Файлы заголовков\engine</Filter>
+    <Image Include="source.png">
+      <Filter>Файлы ресурсов\texture</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="root_id_01.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

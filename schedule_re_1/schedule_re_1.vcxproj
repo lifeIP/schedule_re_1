@@ -145,19 +145,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="e_root.cpp" />
-    <ClCompile Include="root.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="DataBase.h" />
     <ClInclude Include="LandscapeGenerator.h" />
     <ClInclude Include="lib.h" />
     <ClInclude Include="object.h" />
+    <ClInclude Include="RecordChanges.h" />
     <ClInclude Include="SelectArea.h" />
     <ClInclude Include="TextureTile.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="file.txt" />
     <Text Include="tz.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="source.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="root_id_01.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

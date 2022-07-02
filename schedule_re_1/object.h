@@ -4,3 +4,4 @@
 #include "DataBase.h"
 #include "SelectArea.h"
 #include "LandscapeGenerator.h"
+#include "RecordChanges.h"

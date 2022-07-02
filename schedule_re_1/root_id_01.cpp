@@ -2,6 +2,7 @@
 #include "object.h"
 
 int main() {
+	bool a = true;
 	sf::Uint32 style = sf::Style::Fullscreen;// setting the window style
 	std::vector <sf::VideoMode> fullscreen_mode = sf::VideoMode::getFullscreenModes();
 	//these variables show the screen size in pixels.
@@ -26,6 +27,29 @@ int main() {
 				case sf::Keyboard::Escape:
 					window.close();
 					break;
+				case sf::Keyboard::W:
+					edit.up();
+					break;
+				case sf::Keyboard::S:
+					edit.down();
+					break;
+				case sf::Keyboard::A:
+					edit.left();
+					break;
+				case sf::Keyboard::D:
+					edit.right();
+					break;
+				case sf::Keyboard::M:
+					edit.updating_the_mouse_position();
+					a = true;
+					break;
+				case sf::Keyboard::N:
+					f.update_selected_area();
+					a = false;
+					break;
+				case sf::Keyboard::B:
+					f.save("file.txt", 15);
+					break;
 				default:
 					break;
 				}
@@ -37,8 +61,12 @@ int main() {
 		//In this cycle, everything that is displayed on the screen is processed.
 		window.clear(sf::Color::Black);
 		window.draw(map);
-		window.draw(edit);
-		window.draw(f);
+		if (a) {
+			window.draw(edit);
+		}
+		else {
+			window.draw(f);
+		}
 		window.display();
 	}
 	return 0;

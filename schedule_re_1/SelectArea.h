@@ -15,11 +15,91 @@ class SelectArea: public sf::Drawable, private sf::Transformable
 		object.setFillColor(sf::Color::Color(0, 0, 0, 0));
 	}
 public:
+	void save(const std::string& filename, int tile_id) {
+		std::fstream file;
+		file.open(filename, std::ios::app);
+		int x = std::abs(position.x - pos.x) / tileSize.x;
+		int y = std::abs(position.y - pos.y) / tileSize.y;
+		int posx_a = int(pos.x / tileSize.x) * tileSize.x;
+		int posy_a = int(pos.y / tileSize.y) * tileSize.y;
+		int posx_b = int(position.x / tileSize.x) * tileSize.x;
+		int posy_b = int(position.y / tileSize.y) * tileSize.y;
+		
+		if (posx_a < posx_b && posy_a < posy_b) {
+			for (int i = 0; i <= y; i++) {
+				for (int j = 0; j <= x; j++) {
+					std::cout << posx_a + j * tileSize.x;
+					std::cout << " a ";
+					std::cout << posy_a + i * tileSize.y << std::endl;
+				}
+			}
+		}
+		else if (posx_a > posx_b && posy_a > posy_b) {
+			for (int i = y; i > 0; i--) {
+				for (int j = x; j > 0; j--) {
+					std::cout << posx_a - j * tileSize.x;
+					std::cout << " b ";
+					std::cout << posy_a - i * tileSize.y << std::endl;
+				}
+			}
+		}
+		else if (posx_a == posx_b && posy_a == posy_b) {
+			std::cout << posx_a;
+			std::cout << " c ";
+			std::cout << posy_a;
+		}
+		else if (posx_a > posx_b && posy_a < posy_b) {
+			for (int i = 0; i <= y; i++) {
+				for (int j = x; j > 0; j--) {
+					std::cout << posx_a - j * tileSize.x;
+					std::cout << " d ";
+					std::cout << posy_a + i * tileSize.y << std::endl;
+				}
+			}
+		}
+		else if (posx_a < posx_b && posy_a > posy_b) {
+			for (int i = y; i > 0; i--) {
+				for (int j = 0; j <= x; j++) {
+					std::cout << posx_a + j * tileSize.x;
+					std::cout << " e ";
+					std::cout << posy_a - i * tileSize.y << std::endl;
+				}
+			}
+		}
+		else if (posx_a > posx_b && posy_a == posy_b) {
+			for (int j = x; j > 0; j--) {
+				std::cout << posx_a - j * tileSize.x;
+				std::cout << " f ";
+				std::cout << posy_a << std::endl;
+			}
+		}
+		else if (posx_a < posx_b && posy_a == posy_b) {
+			for (int j = 0; j <= x; j++) {
+				std::cout << posx_a + j * tileSize.x;
+				std::cout << " g ";
+				std::cout << posy_a << std::endl;
+			}
+		}
+		else if (posx_a == posx_b && posy_a > posy_b) {
+			for (int i = y; i > 0; i--) {
+				std::cout << posx_a;
+				std::cout << " h ";
+				std::cout << posy_a - i * tileSize.y << std::endl;
+			}
+		}
+		else if (posx_a == posx_b && posy_a < posy_b) {
+			for (int i = 0; i <= y; i++) {
+				std::cout << posx_a;
+				std::cout << " i ";
+				std::cout << posy_a + i * tileSize.y << std::endl;
+			}
+		}
+
+
+		file.close();
+	}
 
 	//getters and setters+
-	std::vector<sf::Vector2f>& get_DATA_S_A() {
-		std::vector<sf::Vector2f> data = { pos, position, tileSize};
-	}
 	//getters and setters-
 
 
@@ -46,16 +126,26 @@ public:
 			object.setSize(stsa);
 		}
 		else {
+			if (difference.x < 0) {
+				stsa.x = difference.x;
+			}
+			else {
+				stsa.x = difference.x + tileSize.x;
+			}
 			object.setSize(sf::Vector2f(difference.x, stsa.y));
-			stsa.x = difference.x;
 		}
 
 		if (difference.y == 0) {
 			object.setSize(stsa);
 		}
 		else {
-			object.setSize(sf::Vector2f(stsa.x, difference.y));
 			stsa.y = difference.y;
+			if (difference.y < 0) {
+				object.setSize(sf::Vector2f(stsa.x, difference.y));
+			}
+			else {
+				object.setSize(sf::Vector2f(stsa.x, difference.y + tileSize.y));
+			}
 		}
 	}
 
