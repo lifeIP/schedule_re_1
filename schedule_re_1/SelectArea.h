@@ -28,70 +28,69 @@ public:
 		if (posx_a < posx_b && posy_a < posy_b) {
 			for (int i = 0; i <= y; i++) {
 				for (int j = 0; j <= x; j++) {
-					std::cout << posx_a + j * tileSize.x;
-					std::cout << " a ";
-					std::cout << posy_a + i * tileSize.y << std::endl;
+					file << posx_a + j * tileSize.x 
+						<< ' ' << posy_a + i * tileSize.y
+						<< std::endl;
 				}
 			}
 		}
 		else if (posx_a > posx_b && posy_a > posy_b) {
 			for (int i = y; i > 0; i--) {
 				for (int j = x; j > 0; j--) {
-					std::cout << posx_a - j * tileSize.x;
-					std::cout << " b ";
-					std::cout << posy_a - i * tileSize.y << std::endl;
+					file << posx_a - j * tileSize.x
+						<< ' ' << posy_a - i * tileSize.y
+						<< std::endl;
 				}
 			}
 		}
 		else if (posx_a == posx_b && posy_a == posy_b) {
-			std::cout << posx_a;
-			std::cout << " c ";
-			std::cout << posy_a;
+			file << posx_a << ' ' << posy_a
+				<< std::endl;
 		}
 		else if (posx_a > posx_b && posy_a < posy_b) {
 			for (int i = 0; i <= y; i++) {
 				for (int j = x; j > 0; j--) {
-					std::cout << posx_a - j * tileSize.x;
-					std::cout << " d ";
-					std::cout << posy_a + i * tileSize.y << std::endl;
+					file << posx_a - j * tileSize.x
+						<< ' ' << posy_a + i * tileSize.y
+						<< std::endl;
 				}
 			}
 		}
 		else if (posx_a < posx_b && posy_a > posy_b) {
 			for (int i = y; i > 0; i--) {
 				for (int j = 0; j <= x; j++) {
-					std::cout << posx_a + j * tileSize.x;
-					std::cout << " e ";
-					std::cout << posy_a - i * tileSize.y << std::endl;
+					file << posx_a + j * tileSize.x
+						<< ' ' << posy_a - i * tileSize.y
+						<< std::endl;
 				}
 			}
 		}
 		else if (posx_a > posx_b && posy_a == posy_b) {
 			for (int j = x; j > 0; j--) {
-				std::cout << posx_a - j * tileSize.x;
-				std::cout << " f ";
-				std::cout << posy_a << std::endl;
+				file << posx_a - j * tileSize.x
+					<< ' ' << posy_a
+					<< std::endl;
 			}
 		}
 		else if (posx_a < posx_b && posy_a == posy_b) {
 			for (int j = 0; j <= x; j++) {
-				std::cout << posx_a + j * tileSize.x;
-				std::cout << " g ";
-				std::cout << posy_a << std::endl;
+				file << posx_a + j * tileSize.x
+					<< ' ' << posy_a
+					<< std::endl;
 			}
 		}
 		else if (posx_a == posx_b && posy_a > posy_b) {
 			for (int i = y; i > 0; i--) {
-				std::cout << posx_a;
-				std::cout << " h ";
-				std::cout << posy_a - i * tileSize.y << std::endl;
+				file << posx_a
+					<< ' ' << posy_a - i * tileSize.y
+					<< std::endl;
 			}
 		}
 		else if (posx_a == posx_b && posy_a < posy_b) {
 			for (int i = 0; i <= y; i++) {
-				std::cout << posx_a;
-				std::cout << " i ";
-				std::cout << posy_a + i * tileSize.y << std::endl;
+				file << posx_a
+					<< ' ' << posy_a + i * tileSize.y
+					<< std::endl;
 			}
 		}
 
