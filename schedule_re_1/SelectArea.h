@@ -2,7 +2,7 @@
 class SelectArea: public sf::Drawable, private sf::Transformable
 {
 	TextureTile* tile;
-	sf::Vector2i position;//point B
+	sf::Vector2f position;//point B
 	sf::Vector2f pos;//point A
 	sf::Vector2f tileSize;
 	sf::Vector2f difference;
@@ -12,9 +12,16 @@ class SelectArea: public sf::Drawable, private sf::Transformable
 		object.setOutlineThickness(-1);
 		object.setOutlineColor(sf::Color::Red);
 		object.setSize(tileSize);
-		object.setFillColor(sf::Color::Color(0, 0, 0, 255));
+		object.setFillColor(sf::Color::Color(0, 0, 0, 0));
 	}
 public:
+
+	//getters and setters+
+	std::vector<sf::Vector2f>& get_DATA_S_A() {
+		std::vector<sf::Vector2f> data = { pos, position, tileSize};
+	}
+	//getters and setters-
+
 
 	//constructors and destructors+
 	SelectArea(TextureTile* tile) {
@@ -31,7 +38,7 @@ public:
 		stsa = tileSize;
 		pos = tile->get_position();
 		object.setPosition(int(pos.x / tileSize.x) * tileSize.x, int(pos.y / tileSize.y) * tileSize.y);
-		position = sf::Mouse::getPosition();
+		position = sf::Vector2f(sf::Mouse::getPosition());
 		difference.x = int((position.x - pos.x) / tileSize.x) * tileSize.x;
 		difference.y = int((position.y - pos.y) / tileSize.y) * tileSize.y;
 

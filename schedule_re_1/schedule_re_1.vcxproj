@@ -145,9 +145,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="e_root.cpp" />
     <ClCompile Include="root.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataBase.h" />
+    <ClInclude Include="LandscapeGenerator.h" />
     <ClInclude Include="lib.h" />
     <ClInclude Include="object.h" />
     <ClInclude Include="SelectArea.h" />

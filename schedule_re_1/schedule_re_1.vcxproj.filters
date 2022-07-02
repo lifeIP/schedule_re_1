@@ -13,29 +13,44 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы заголовков\map_editor">
+      <UniqueIdentifier>{0f372615-7d6b-4499-8e8b-5481d09b9dad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\engine">
+      <UniqueIdentifier>{6132c1a7-2fbd-469e-9410-08353e282fc5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="root.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="lib.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureTile.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="DataBase.h">
+      <Filter>Файлы заголовков\map_editor</Filter>
     </ClInclude>
     <ClInclude Include="object.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\map_editor</Filter>
     </ClInclude>
     <ClInclude Include="SelectArea.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\map_editor</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureTile.h">
+      <Filter>Файлы заголовков\map_editor</Filter>
+    </ClInclude>
+    <ClInclude Include="LandscapeGenerator.h">
+      <Filter>Файлы заголовков\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="lib.h">
+      <Filter>Файлы заголовков\map_editor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="tz.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="root.cpp">
+      <Filter>Файлы заголовков\map_editor</Filter>
+    </ClCompile>
+    <ClCompile Include="e_root.cpp">
+      <Filter>Файлы заголовков\engine</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

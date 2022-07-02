@@ -5,7 +5,6 @@ class TextureTile: public sf::Drawable, private sf::Transformable
 {
 private:
 	sf::Vector2f position;
-	std::string dataBase[3];
 	sf::Vector2f tileSize;
 	std::vector <sf::VideoMode> fullscreen_mode;
 	sf::Vector2i xy;
@@ -17,11 +16,16 @@ private:
 		object.setOutlineThickness(-1);
 		object.setOutlineColor(sf::Color::Green);
 		object.setSize(tileSize);
-		object.setFillColor(sf::Color::Color(0, 0, 0, 255));
+		object.setFillColor(sf::Color::Color(0, 0, 0, 0));
 	}
 
 public:
 	//getters and setters+
+	std::vector<sf::Vector2f>& get_DATA_T_T() {
+		std::vector<sf::Vector2f> data = {position, tileSize};
+	}
+
+
 	sf::Vector2f& get_position() {
 		return position;
 	}
@@ -38,24 +42,11 @@ public:
 	sf::Vector2f& get_tileSize() {
 		return tileSize;
 	}
-
-
-	const std::string* get_NameDB() const {
-		return dataBase;
-	}
-	void set_NameDB(std::string & file_0, std::string& file_1, std::string& file_2) {
-		dataBase[0] = file_0;
-		dataBase[1] = file_1;
-		dataBase[2] = file_2;
-	}
 	//getters and setters-
 	
 	//constructors and destructors+
 	TextureTile() {
 		fullscreen_mode = sf::VideoMode::getFullscreenModes();
-		dataBase[0] = "db_map.txt"; 
-		dataBase[1] = "db_change.txt";
-		dataBase[0] = "db_save_last_version.txt";
 		tileSize = sf::Vector2f(32, 32);
 		xy = sf::Vector2i(int(fullscreen_mode[0].width / tileSize.x) * tileSize.x, int(fullscreen_mode[0].height / tileSize.y) * tileSize.y);
 		load();
@@ -86,8 +77,7 @@ public:
 		}
 	}
 	void updating_the_mouse_position() {
-		position.x = sf::Mouse::getPosition().x;
-		position.y = sf::Mouse::getPosition().y;
+		position = sf::Vector2f(sf::Mouse::getPosition());
 		object.setPosition(int(position.x / tileSize.x) * tileSize.x, int(position.y / tileSize.y) * tileSize.y);
 	}
 	//management methods-

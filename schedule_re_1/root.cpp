@@ -1,7 +1,7 @@
 #include "lib.h"
 #include "object.h"
 
-
+/*
 int main() {
 	bool a = true;
 	sf::Uint32 style = sf::Style::Fullscreen;// setting the window style
@@ -61,4 +61,4 @@ int main() {
 		window.display();
 	}
 	return 0;
-}
+}*/
